@@ -1,8 +1,10 @@
 package com.example.pro.sky.course.webdemo.servise;
 
 import com.example.pro.sky.course.webdemo.model.Book;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 @Service
@@ -22,8 +24,11 @@ public class BookServise {
     }
 
     public Book editBook (Book book) {
-        books.put(book.getId(), book);
-        return book;
+        if (books.containsKey(book.getId())) {
+            books.put(book.getId(), book);
+            return book;
+        }
+        return null;
     }
 
     public Book deleteBook (long id) {
@@ -31,5 +36,7 @@ public class BookServise {
     }
 
 
-
+    public Collection<Book> getAllBooks() {
+        return books.values();
+    }
 }
