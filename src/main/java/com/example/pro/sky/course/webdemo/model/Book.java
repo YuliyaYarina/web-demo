@@ -1,9 +1,17 @@
 package com.example.pro.sky.course.webdemo.model;
 
-import java.util.Objects;
+import nonapi.io.github.classgraph.json.Id;
 
+import javax.annotation.processing.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import java.util.Objects;
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private String author;
